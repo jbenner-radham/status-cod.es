@@ -1,5 +1,8 @@
 <template>
-    <li><strong>{{ value }}</strong> - {{ description }} {{ reference }}</li>
+    <li :id="value">
+        <strong>{{ value }}</strong> - {{ description }}
+        <span class="status-code__reference">{{ reference }}</span>
+    </li>
 </template>
 
 <script>
@@ -12,3 +15,9 @@
         }
     }
 </script>
+
+<style>
+    .status-code__reference {
+        font-family: monospace;
+    }
+</style>

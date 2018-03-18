@@ -1,18 +1,20 @@
 <template>
-    <div id="app">
-        <ul v-for="statusCode in currentStatusCodes" :key="statusCode.value">
-            <status-code :value="statusCode.value"
-                :description="statusCode.description"
-                :reference="statusCode.reference"/>
-        </ul>
+    <div id="app" class="row">
+        <div class="col-left"></div>
+        <div class="col-middle">
+            <ul v-for="statusCode in currentStatusCodes" :key="statusCode.value">
+                <status-code :value="statusCode.value"
+                    :description="statusCode.description"
+                    :reference="statusCode.reference"/>
+            </ul>
+        </div>
+        <div class="col-right"></div>
     </div>
 </template>
 
 <script>
     import axios from 'axios'
     import StatusCode from './components/StatusCode.vue'
-
-    // const inRange = (number, gte, lt) => (number >= gte && number < lt);
 
     export default {
         name: 'app',
@@ -66,10 +68,23 @@
 <style>
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        font-size: 2.5rem;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-align: center;
+        text-align: left;
         color: #2c3e50;
+    }
+
+    .col-left, .col-right {
+        flex: 1;
+    }
+
+    .col-middle {
+        flex: 2;
+    }
+
+    .row {
+        display: flex;
     }
 
     ul {
