@@ -1,3 +1,4 @@
+import fs from 'fs'
 import Vue from 'vue'
 import App from './App.vue'
 
