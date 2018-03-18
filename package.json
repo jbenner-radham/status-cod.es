@@ -1,6 +1,7 @@
 {
   "name": "status-cod.es-lab",
-  "version": "0.1.0",
+  "description": "A lab to mess around with different versions of my HTTP status codes site.",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
