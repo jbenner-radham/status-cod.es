@@ -80,7 +80,7 @@
     }
 
     .col-middle {
-        flex: 2;
+        flex: 8;
     }
 
     .row {
