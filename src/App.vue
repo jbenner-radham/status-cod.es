@@ -1,14 +1,16 @@
 <template>
     <div id="app" class="row">
-        <div class="col-left"></div>
-        <div class="col-middle">
-            <ul v-for="statusCode in currentStatusCodes" :key="statusCode.value">
-                <status-code :value="statusCode.value"
+        <div class="col--left"></div>
+        <div class="col--middle">
+            <dl>
+                <status-code v-for="statusCode in currentStatusCodes"
+                    :key="statusCode.value"
+                    :value="statusCode.value"
                     :description="statusCode.description"
                     :reference="statusCode.reference"/>
-            </ul>
+            </dl>
         </div>
-        <div class="col-right"></div>
+        <div class="col--right"></div>
     </div>
 </template>
 
@@ -65,7 +67,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         font-size: 2.5rem;
@@ -75,19 +77,15 @@
         color: #2c3e50;
     }
 
-    .col-left, .col-right {
+    .col--left, .col--right {
         flex: 1;
     }
 
-    .col-middle {
-        flex: 8;
+    .col--middle {
+        flex: 3;
     }
 
     .row {
         display: flex;
-    }
-
-    ul {
-        list-style: none;
     }
 </style>
