@@ -15,17 +15,17 @@
 </template>
 
 <script>
-    import StatusCodeReference from './StatusCodeReference.vue'
+    import StatusCodeReference from './StatusCodeReference.vue';
 
     export default {
         name: 'StatusCode',
+        components: {
+            StatusCodeReference
+        },
         props: {
             value: Number,
             description: String,
             reference: String
-        },
-        components: {
-            StatusCodeReference
         },
         methods: {
             getRfcNumber(reference = '') {
@@ -43,7 +43,7 @@
                 return reference.match(/\[RFC\d{4}(?:\w|,| |\.)*\]/g);
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss">

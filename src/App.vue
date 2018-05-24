@@ -1,27 +1,33 @@
 <template>
     <div id="app" class="row">
-        <div class="col--left"></div>
+        <div class="col--left"/>
         <div class="col--middle">
             <dl>
                 <status-code v-for="statusCode in currentStatusCodes"
-                    :key="statusCode.value"
-                    :value="statusCode.value"
-                    :description="statusCode.description"
-                    :reference="statusCode.reference"/>
+                             :key="statusCode.value"
+                             :value="statusCode.value"
+                             :description="statusCode.description"
+                             :reference="statusCode.reference"/>
             </dl>
         </div>
-        <div class="col--right"></div>
+        <div class="col--right"/>
     </div>
 </template>
 
 <script>
-    import axios from 'axios'
-    import StatusCode from './components/StatusCode.vue'
+    import axios from 'axios';
+    import StatusCode from './components/StatusCode.vue';
 
     export default {
-        name: 'app',
+        name: 'App',
         components: {
             StatusCode
+        },
+        data() {
+            return {
+                allStatusCodes: [],
+                currentStatusCodes: []
+            };
         },
         computed: {
             oneHundredSeries() {
@@ -50,21 +56,15 @@
                 });
             }
         },
-        data() {
-            return {
-                allStatusCodes: [],
-                currentStatusCodes: []
-            }
-        },
         async created() {
             try {
                 const request = await axios.get('http-status-code-registry.json');
                 this.allStatusCodes = this.currentStatusCodes = request.data;
             } catch (e) {
-                console.error(e)
+                console.error(e);
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss">
@@ -78,11 +78,11 @@
     }
 
     .col--left, .col--right {
-        flex: 1;
+        flex-grow: 1;
     }
 
     .col--middle {
-        flex: 3;
+        flex-grow: 3;
     }
 
     .row {

@@ -9,5 +9,5 @@
             url: String,
             reference: String
         }
-    }
+    };
 </script>
