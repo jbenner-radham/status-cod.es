@@ -7,7 +7,7 @@
             {{ description }}
         </dd>
         <ul class="status-code__references">
-            <li v-for="reference in splitReferences(reference)" :key="reference" class="status-code__reference">
+            <li v-for="reference in references" :key="reference" class="status-code__reference">
                 <status-code-reference :url="getReferenceUrl(reference)" :reference="reference"/>
             </li>
         </ul>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import StatusCodeReference from './StatusCodeReference.vue';
+    import StatusCodeReference from '@/components/StatusCodeReference.vue';
 
     export default {
         name: 'StatusCode',
@@ -23,9 +23,35 @@
             StatusCodeReference
         },
         props: {
-            value: Number,
-            description: String,
-            reference: String
+            statusCode: {
+                type: Object,
+                default() {
+                    return {
+                        description: '',
+                        reference: '',
+                        value: NaN
+                    };
+                },
+                validator(value) {
+                    const keys = ['description', 'reference', 'value'];
+
+                    return Object.keys(value).every(key => keys.includes(key));
+                }
+            }
+        },
+        computed: {
+            description() {
+                return this.statusCode.description;
+            },
+            reference() {
+                return this.statusCode.reference;
+            },
+            references() {
+                return this.reference.match(/\[RFC\d{4}(?:\w|,| |\.)*\]/g);
+            },
+            value() {
+                return this.statusCode.value;
+            }
         },
         methods: {
             getRfcNumber(reference = '') {
@@ -38,9 +64,6 @@
                 const rfc = this.getRfcNumber(reference);
 
                 return `https://www.ietf.org/rfc/rfc${rfc}.txt`;
-            },
-            splitReferences(reference = '') {
-                return reference.match(/\[RFC\d{4}(?:\w|,| |\.)*\]/g);
             }
         }
     };

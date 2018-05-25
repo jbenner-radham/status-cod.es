@@ -14,6 +14,7 @@ module.exports = {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-trailing-spaces': 'error',
+        'object-curly-spacing': ['error', 'always'],
         semi: ['error', 'always']
     },
     parserOptions: {
@@ -26,7 +27,6 @@ module.exports = {
                 indent: 'off',
                 'vue/html-indent': ['error', 4],
                 'vue/max-attributes-per-line': 'off',
-                'vue/require-default-prop': 'off',
                 'vue/script-indent': ['error', 4, { baseIndent: 1 }]
             }
         }
