@@ -28,7 +28,7 @@ module.exports = {
                 indent: 'off',
                 'vue/html-indent': ['error', 4],
                 'vue/max-attributes-per-line': 'off',
-                'vue/script-indent': ['error', 4, { baseIndent: 1 }]
+                'vue/script-indent': ['error', 4, { baseIndent: 1, switchIndent: 1 }]
             }
         }
     ]
