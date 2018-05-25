@@ -8,7 +8,7 @@
         </dd>
         <ul class="status-code__references">
             <li v-for="reference in references" :key="reference" class="status-code__reference">
-                <status-code-reference :url="getReferenceUrl(reference)" :reference="reference"/>
+                <status-code-reference :reference="reference"/>
             </li>
         </ul>
     </div>
@@ -51,19 +51,6 @@
             },
             value() {
                 return this.statusCode.value;
-            }
-        },
-        methods: {
-            getRfcNumber(reference = '') {
-                const rfc = /(?:RFC)(\d{4})/.exec(reference).pop();
-                const radix = 10;
-
-                return parseInt(rfc, radix);
-            },
-            getReferenceUrl(reference = '') {
-                const rfc = this.getRfcNumber(reference);
-
-                return `https://www.ietf.org/rfc/rfc${rfc}.txt`;
             }
         }
     };

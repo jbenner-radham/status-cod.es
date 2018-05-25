@@ -15,6 +15,7 @@ module.exports = {
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-trailing-spaces': 'error',
         'object-curly-spacing': ['error', 'always'],
+        quotes: ['error', 'single'],
         semi: ['error', 'always']
     },
     parserOptions: {
