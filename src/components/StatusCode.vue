@@ -57,6 +57,7 @@
 </script>
 
 <style lang="scss">
+    /// NOTE: The order of the Bootstrap imports is important!
     @import '~bootstrap/scss/functions';
     @import '~bootstrap/scss/variables';
 
