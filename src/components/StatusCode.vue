@@ -57,9 +57,8 @@
 </script>
 
 <style lang="scss">
-    /// Taken from Bootstrap.
-    /// @link https://github.com/twbs/bootstrap/blob/2ea0a9bba9880d50b9a898dd148cbe66b694e52d/scss/_variables.scss#L235
-    $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    @import '~bootstrap/scss/functions';
+    @import '~bootstrap/scss/variables';
 
     .status-code {
         margin: 2.5rem;
