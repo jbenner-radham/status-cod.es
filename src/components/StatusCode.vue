@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import StatusCodeReference from '@/components/StatusCodeReference.vue';
+    import StatusCodeReference from '@/components/StatusCode/Reference.vue';
 
     export default {
         name: 'StatusCode',
@@ -57,12 +57,16 @@
 </script>
 
 <style lang="scss">
+    /// Taken from Bootstrap.
+    /// @link https://github.com/twbs/bootstrap/blob/2ea0a9bba9880d50b9a898dd148cbe66b694e52d/scss/_variables.scss#L235
+    $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
     .status-code {
         margin: 2.5rem;
     }
 
     .status-code__reference {
-        font-family: monospace;
+        font-family: $font-family-monospace;
     }
 
     .status-code__references {

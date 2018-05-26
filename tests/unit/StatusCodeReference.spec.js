@@ -1,15 +1,16 @@
 import { expect } from 'chai';
 import { shallowMount } from '@vue/test-utils';
-import StatusCodeReference from '@/components/StatusCodeReference.vue';
+import StatusCodeReference from '@/components/StatusCode/Reference.vue';
 
-describe('StatusCodeReference.vue', function () {
+describe('StatusCode/Reference.vue', function () {
     it('renders `props.reference` when passed', function () {
-        const reference = '[RFC7231, Section 6.3.1]';
+        const citation = 'RFC7231, Section 6.3.1';
+        const reference = `[${citation}]`;
         const wrapper = shallowMount(StatusCodeReference, {
             propsData: { reference }
         });
 
-        expect(wrapper.text()).to.equal(reference);
+        expect(wrapper.text()).to.equal(citation);
     });
 
     it('renders `props.reference` when passed a non-conforming reference', function () {

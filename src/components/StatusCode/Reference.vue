@@ -1,8 +1,12 @@
 <template>
-    <a :href="url">{{ reference }}</a>
+    <cite class="citation">
+        <a :href="url">{{ citation }}</a>
+    </cite>
 </template>
 
 <script>
+    import * as debracketify from 'debracketify';
+
     export default {
         name: 'StatusCodeReference',
         props: {
@@ -14,6 +18,9 @@
             }
         },
         computed: {
+            citation() {
+                return debracketify(this.reference);
+            },
             rfc() {
                 const matches = /(?:RFC)(\d{4})/.exec(this.reference) || [];
                 const rfc = matches.pop();
@@ -29,3 +36,15 @@
         }
     };
 </script>
+
+<style lang="scss">
+    .citation {
+        ::after {
+            content: ']';
+        }
+
+        ::before {
+            content: '[';
+        }
+    }
+</style>
