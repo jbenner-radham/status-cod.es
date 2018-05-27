@@ -1,5 +1,5 @@
 <template>
-    <cite class="citation">
+    <cite class="status-code-reference">
         <a :href="url">{{ citation }}</a>
     </cite>
 </template>
@@ -38,13 +38,15 @@
 </script>
 
 <style lang="scss">
-    .citation {
+    .status-code-reference {
+        font-style: normal;
+
         ::after {
-            content: ']';
+            content: ' ]';
         }
 
         ::before {
-            content: '[';
+            content: '[ ';
         }
     }
 </style>

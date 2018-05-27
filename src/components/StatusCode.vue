@@ -1,17 +1,23 @@
 <template>
-    <section class="status-code">
+    <div title="Status Code" class="status-code">
         <dt :id="value" class="status-code__value">
-            <h3>{{ value }}</h3>
+            <dfn title="Value" class="status-code__value-dfn">
+                {{ value }}
+            </dfn>
         </dt>
-        <dd class="status-code__description">
+
+        <dd title="Description" class="status-code__description">
             {{ description }}
         </dd>
-        <ul class="status-code__references">
-            <li v-for="reference in references" :key="reference" class="status-code__reference">
-                <status-code-reference :reference="reference"/>
-            </li>
-        </ul>
-    </section>
+
+        <dd title="References" class="status-code__references">
+            <ul class="status-code__references-list">
+                <li v-for="reference in references" :key="reference" class="status-code__reference-item">
+                    <status-code-reference :reference="reference"/>
+                </li>
+            </ul>
+        </dd>
+    </div>
 </template>
 
 <script>
@@ -61,8 +67,17 @@
     @import '~bootstrap/scss/functions';
     @import '~bootstrap/scss/variables';
 
+    /// > In order to annotate groups with microdata attributes, or other global
+    /// > attributes that apply to whole groups, or just for styling purposes,
+    /// > each group in a dl element can be wrapped in a div element.
+    ///
+    /// @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element
     .status-code {
         margin: 2.5rem;
+    }
+
+    .status-code__description {
+        margin-bottom: 0;
     }
 
     .status-code__reference {
@@ -70,6 +85,10 @@
     }
 
     .status-code__references {
+        margin-bottom: 0;
+    }
+
+    .status-code__references-list {
         list-style: none;
         padding-left: 0;
 
@@ -89,5 +108,10 @@
             margin-left: 1rem;
             margin-right: 1rem;
         }
+    }
+
+    .status-code__value-dfn {
+        font-style: normal;
+        font-weight: bolder;
     }
 </style>
