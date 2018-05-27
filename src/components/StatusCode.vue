@@ -1,7 +1,7 @@
 <template>
-    <div class="status-code">
+    <section class="status-code">
         <dt :id="value" class="status-code__value">
-            <strong>{{ value }}</strong>
+            <h3>{{ value }}</h3>
         </dt>
         <dd class="status-code__description">
             {{ description }}
@@ -11,7 +11,7 @@
                 <status-code-reference :reference="reference"/>
             </li>
         </ul>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -79,11 +79,13 @@
     }
 
     .status-code__value {
-        float: left;
         clear: left;
+        float: left;
+        line-height: 3.5rem;
 
         ::after {
             content: '—';
+            font-weight: normal;
             margin-left: 1rem;
             margin-right: 1rem;
         }
