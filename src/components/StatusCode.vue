@@ -1,16 +1,16 @@
 <template>
-    <div title="Status Code" class="status-code">
-        <dt :id="value" class="status-code__value">
+    <div property="http:Response" class="status-code">
+        <dt :id="value" property="http:statusCodeValue" class="status-code__value">
             <dfn title="Value" class="status-code__value-dfn">
                 {{ value }}
             </dfn>
         </dt>
 
-        <dd title="Description" class="status-code__description">
+        <dd property="http:reasonPhrase" class="status-code__description">
             {{ description }}
         </dd>
 
-        <dd title="References" class="status-code__references">
+        <dd class="status-code__references">
             <ul class="status-code__references-list">
                 <li v-for="reference in references" :key="reference" class="status-code__reference-item">
                     <status-code-reference :reference="reference"/>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+    /** @see https://www.w3.org/TR/HTTP-in-RDF/ */
     import StatusCodeReference from '@/components/StatusCode/Reference.vue';
 
     export default {
