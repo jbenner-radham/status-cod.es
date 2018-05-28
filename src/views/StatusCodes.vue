@@ -1,36 +1,30 @@
 <template>
-    <div class="home row">
-        <div class="col--left"/>
-        <div class="col--middle">
-            <dl class="profile" prefix="registry: https://www.iana.org/assignments/http-status-codes/">
-                <dt>HTTP Status Codes</dt>
-                <dd>
-                    <div v-for="range in ranges" :key="range.name">
-                        <dt :id="range.name" class="status-code-range">
-                            <span class="status-code-range__name">
-                                {{ range.name }}
-                            </span>
-                            <span class="status-code-range__class">
-                                {{ range.class }}
-                            </span>
-                        </dt>
-                        <dd>
-                            <q cite="registry:http-status-codes.xml">
-                                {{ range.description }}
-                            </q>
-                        </dd>
-                        <dd>
-                            <status-code
-                                v-for="statusCode in range.values"
-                                :key="statusCode.value"
-                                :status-code="statusCode"
-                            />
-                        </dd>
-                    </div>
-                </dd>
-            </dl>
+    <div class="status-codes">
+        <div v-for="range in ranges" :key="range.name">
+            <dt :id="range.name" class="status-code-range">
+                <span class="status-code-range__name">
+                    {{ range.name }}
+                </span>
+
+                <span class="status-code-range__class">
+                    {{ range.class }}
+                </span>
+            </dt>
+
+            <dd>
+                <q :cite="registryUrl" class="status-code-range__description">
+                    {{ range.description }}
+                </q>
+            </dd>
+
+            <dd>
+                <status-code
+                    v-for="statusCode in range.values"
+                    :key="statusCode.value"
+                    :status-code="statusCode"
+                />
+            </dd>
         </div>
-        <div class="col--right"/>
     </div>
 </template>
 
@@ -53,7 +47,8 @@
         },
         data() {
             return {
-                displayedStatusCodes: []
+                displayedStatusCodes: [],
+                registryUrl: 'https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml'
             };
         },
         computed: {
@@ -148,39 +143,17 @@
 </script>
 
 <style lang="scss">
-    q {
-        display: flex;
-    }
-
-    .col--left, .col--right {
-        flex-grow: 1;
-    }
-
-    .col--middle {
-        flex-grow: 3;
-    }
-
-    .row {
-        display: flex;
-    }
-
     .status-code-range {
         border-bottom-width: thin;
         border-bottom-style: dashed;
         border-bottom-color: black;
     }
 
-    .status-code-range__name {
-        font-size: 5rem;
+    .status-code-range__description {
+        display: flex;
     }
 
-    .status-code-range__class {
-        ::after {
-            content: ')';
-        }
-
-        ::before {
-            content: '(';
-        }
+    .status-code-range__name {
+        font-size: 5rem;
     }
 </style>
