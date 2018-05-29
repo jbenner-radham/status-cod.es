@@ -1,11 +1,11 @@
 <template>
     <main id="app">
-        <dl class="profile">
+        <dl class="app__definition-list profile">
             <dt class="app__title">
                 HTTP Status Codes
             </dt>
 
-            <dd>
+            <dd class="app__definitions">
                 <router-view/>
             </dd>
         </dl>
@@ -29,6 +29,10 @@
         font-family: $font-family-sans-serif;
         font-size: 2.5rem;
         justify-content: space-around;
+    }
+
+    .app__definition-list {
+        min-width: 85%;
     }
 
     .app__title {
