@@ -729,6 +729,10 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
+"@radioactivehamster/date-time@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@radioactivehamster/date-time/-/date-time-0.1.5.tgz#0c9a641c03ed59a97326ee164c5c5a92d5b4c639"
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
