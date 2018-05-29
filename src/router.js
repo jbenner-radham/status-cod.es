@@ -15,6 +15,10 @@ export default new Router({
         {
             path: '/:value(\\d+)',
             component: StatusCode
+        },
+        {
+            path: '/:display([1-5]xx)',
+            component: StatusCodes
         }
     ]
 });

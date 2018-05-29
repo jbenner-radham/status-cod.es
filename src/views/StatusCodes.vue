@@ -1,45 +1,24 @@
 <template>
     <div class="status-codes">
-        <div v-for="range in ranges" :key="range.name">
-            <dt :id="range.name" class="status-code-range">
-                <span class="status-code-range__name">
-                    {{ range.name }}
-                </span>
-
-                <span class="status-code-range__class">
-                    {{ range.class }}
-                </span>
-            </dt>
-
-            <dd>
-                <q :cite="registryUrl" class="status-code-range__description">
-                    {{ range.description }}
-                </q>
-            </dd>
-
-            <dd>
-                <status-code
-                    v-for="statusCode in range.values"
-                    :key="statusCode.value"
-                    :status-code="statusCode"
-                />
-            </dd>
-        </div>
+        <status-code-range
+            v-for="range in displayedRanges"
+            :range="range"
+            :key="range.name"
+        />
     </div>
 </template>
 
 <script>
-    /** @see https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element */
-    import StatusCode from '@/components/StatusCode.vue';
+    import StatusCodeRange from '@/components/StatusCode/Range.vue';
 
     export default {
         name: 'StatusCodes',
         components: {
-            StatusCode
+            StatusCodeRange
         },
         props: {
             display: {
-                type: [Number, String],
+                type: String,
                 default() {
                     return 'all';
                 }
@@ -47,8 +26,7 @@
         },
         data() {
             return {
-                displayedStatusCodes: [],
-                registryUrl: 'https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml'
+                displayedRanges: []
             };
         },
         computed: {
@@ -101,59 +79,27 @@
                         name: '4xx',
                         class: 'Client Error',
                         description: 'The request contains bad syntax or cannot be fulfilled',
-                        values: this.oneHundredSeries
+                        values: this.fourHundredSeries
                     },
                     {
                         name: '5xx',
                         class: 'Server Error',
                         description: 'The server failed to fulfill an apparently valid request',
-                        values: this.oneHundredSeries
+                        values: this.fiveHundredSeries
                     }
                 ];
             }
         },
         created() {
-            switch (this.display) {
-            case 'all':
-                this.displayedStatusCodes = this.$statusCodes;
-                break;
+            const { display } = this.$route.params;
 
-            case '1xx':
-                this.displayedStatusCodes = this.oneHundredSeries;
-                break;
-
-            case '2xx':
-                this.displayedStatusCodes = this.twoHundredSeries;
-                break;
-
-            case '3xx':
-                this.displayedStatusCodes = this.threeHundredSeries;
-                break;
-
-            case '4xx':
-                this.displayedStatusCodes = this.fourHundredSeries;
-                break;
-
-            case '5xx':
-                this.displayedStatusCodes = this.fiveHundredSeries;
-                break;
-            }
+            this.displayedRanges = (display == 'all')
+                ? this.ranges
+                : this.ranges.filter(range => display == range.name);
         }
     };
 </script>
 
 <style lang="scss">
-    .status-code-range {
-        border-bottom-width: thin;
-        border-bottom-style: dashed;
-        border-bottom-color: black;
-    }
 
-    .status-code-range__description {
-        display: flex;
-    }
-
-    .status-code-range__name {
-        font-size: 5rem;
-    }
 </style>
