@@ -41,11 +41,11 @@
     .status-code-reference {
         font-style: normal;
 
-        ::after {
+        &::after {
             content: ' ]';
         }
 
-        ::before {
+        &::before {
             content: '[ ';
         }
     }

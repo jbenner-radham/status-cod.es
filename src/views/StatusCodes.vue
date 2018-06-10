@@ -16,14 +16,6 @@
         components: {
             StatusCodeRange
         },
-        props: {
-            display: {
-                type: String,
-                default() {
-                    return 'all';
-                }
-            }
-        },
         data() {
             return {
                 displayedRanges: []

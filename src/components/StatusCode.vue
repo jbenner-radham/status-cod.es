@@ -93,7 +93,7 @@
         list-style: none;
         padding-left: 0;
 
-        :not(:first-child) {
+        &:not(:first-child) {
             margin-top: 1rem;
         }
     }
@@ -103,16 +103,20 @@
         float: left;
         line-height: 3.5rem;
 
-        ::after {
-            content: '—';
+        &::after {
+            content: '—'; /// @see &mdash;
             font-weight: normal;
-            margin-left: 1rem;
-            margin-right: 1rem;
+            margin: {
+                left: 1rem;
+                right: 1rem;
+            }
         }
     }
 
     .status-code__value-dfn {
-        font-style: normal;
-        font-weight: bolder;
+        font: {
+            style: normal;
+            weight: bolder;
+        }
     }
 </style>

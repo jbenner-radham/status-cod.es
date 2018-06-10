@@ -55,13 +55,19 @@
     @import '~bootstrap/scss/functions';
     @import '~bootstrap/scss/variables';
 
+    $font-family-serif: 'Apple Garamond',
+                        Baskerville,
+                        'Times New Roman',
+                        Roboto,
+                        'Droid Serif',
+                        Times,
+                        'Source Serif Pro',
+                        serif;
+
     .status-code-range__description {
         color: lighten($color: #000000, $amount: 32%);
         display: flex;
-        font: {
-            family: $font-family-monospace;
-            style: italic;
-        }
+        font-style: italic;
     }
 
     .status-code-range__term {

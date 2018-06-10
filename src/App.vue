@@ -31,7 +31,7 @@
     }
 
     .app__definition-list {
-        min-width: 85%;
+        max-width: 85%;
     }
 
     .app__title {
@@ -43,8 +43,10 @@
 
         &::after {
             content: '≔'; /// @see &coloneq;
-            margin-left: -.5rem;
-            margin-right: 1rem;
+            margin: {
+                left: -.5rem;
+                right: 1rem;
+            }
         }
     }
 </style>
