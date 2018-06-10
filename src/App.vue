@@ -1,8 +1,8 @@
 <template>
     <main id="app">
-        <dl class="app__definition-list profile">
-            <dt class="app__title">
-                HTTP Status Codes
+        <dl class="app__definition-list">
+            <dt class="app__title" title="HTTP Status Codes" aria-label="HTTP Status Codes">
+                http_status_codes
             </dt>
 
             <dd class="app__definitions">
@@ -19,14 +19,13 @@
     @import '~bootstrap/scss/mixins';
     @import '~bootstrap/scss/reboot';
 
-    $dark-color: #2c3e50;
+    $dark-color: #2b2b2b;
 
     #app {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         color: $dark-color;
         display: flex;
-        font-family: $font-family-sans-serif;
         font-size: 2.5rem;
         justify-content: space-around;
     }
@@ -38,6 +37,14 @@
     .app__title {
         background-color: $dark-color;
         color: white;
+        font-family: $font-family-monospace;
         padding: 1rem;
+        text-align: right;
+
+        &::after {
+            content: '≔'; /// @see &coloneq;
+            margin-left: -.5rem;
+            margin-right: 1rem;
+        }
     }
 </style>

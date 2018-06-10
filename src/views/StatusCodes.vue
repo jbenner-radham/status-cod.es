@@ -93,7 +93,7 @@
         created() {
             const { display } = this.$route.params;
 
-            this.displayedRanges = (display == 'all')
+            this.displayedRanges = (!display)
                 ? this.ranges
                 : this.ranges.filter(range => display == range.name);
         }

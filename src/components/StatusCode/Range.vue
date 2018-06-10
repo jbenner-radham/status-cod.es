@@ -51,14 +51,25 @@
 </script>
 
 <style lang="scss">
+    /// NOTE: The order of the Bootstrap imports is important!
+    @import '~bootstrap/scss/functions';
+    @import '~bootstrap/scss/variables';
+
     .status-code-range__description {
+        color: lighten($color: #000000, $amount: 32%);
         display: flex;
+        font: {
+            family: $font-family-monospace;
+            style: italic;
+        }
     }
 
     .status-code-range__term {
-        border-bottom-width: thin;
-        border-bottom-style: dashed;
-        border-bottom-color: black;
+        border-bottom: {
+            width: thin;
+            style: dashed;
+            color: black;
+        }
     }
 
     .status-code-range__term--name {
