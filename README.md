@@ -1,5 +1,5 @@
-status-cod.es-lab
-=================
+status-cod.es
+=============
 A lab to mess around with different versions of my HTTP status codes site.
 
 Usage
