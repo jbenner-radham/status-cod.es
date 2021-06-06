@@ -21,17 +21,12 @@
             citation() {
                 return debracketify(this.reference);
             },
-            rfc() {
-                const matches = /(?:RFC)(\d{4})/.exec(this.reference) || [];
-                const rfc = matches.pop();
-                const radix = 10;
-
-                return parseInt(rfc, radix);
-            },
             url() {
-                return !isNaN(this.rfc)
-                    ? `https://www.ietf.org/rfc/rfc${this.rfc}.txt`
-                    : '#';
+                const [, rfc, section] = /(?:RFC)(\d+)(?:, Section )?((\d.?)?(\d.?)?(\d)?)/.exec(this.reference);
+
+                return section
+                    ? `https://datatracker.ietf.org/doc/html/rfc${rfc}#section-${section}`
+                    : `https://datatracker.ietf.org/doc/html/rfc${rfc}`;
             }
         }
     };
