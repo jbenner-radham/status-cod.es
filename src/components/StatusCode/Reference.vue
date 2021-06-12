@@ -23,7 +23,7 @@
             },
             url() {
                 const re = /(?:RFC)(\d+)(?:, Section )?((\d.?)?(\d.?)?(\d)?)/;
-                const [, rfc, section] = re.exec(this.reference);
+                const [, rfc, section] = re.exec(this.reference) || [];
 
                 return section
                     ? `https://datatracker.ietf.org/doc/html/rfc${rfc}#section-${section}`
