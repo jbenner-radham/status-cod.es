@@ -22,7 +22,8 @@
                 return debracketify(this.reference);
             },
             url() {
-                const [, rfc, section] = /(?:RFC)(\d+)(?:, Section )?((\d.?)?(\d.?)?(\d)?)/.exec(this.reference);
+                const re = /(?:RFC)(\d+)(?:, Section )?((\d.?)?(\d.?)?(\d)?)/;
+                const [, rfc, section] = re.exec(this.reference);
 
                 return section
                     ? `https://datatracker.ietf.org/doc/html/rfc${rfc}#section-${section}`
