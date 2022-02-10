@@ -28,7 +28,7 @@
     "debracketify": "^0.1.1",
     "http-status-code-registry": "^0.1.0",
     "lint-staged": "^8.1.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.3.1",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.26.1"
