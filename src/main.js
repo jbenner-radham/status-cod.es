@@ -1,14 +1,11 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import StatusCodes from './plugins/StatusCodes';
-import './registerServiceWorker';
 
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-Vue.use(StatusCodes);
+app.use(router);
+app.use(StatusCodes);
 
-new Vue({
-    router,
-    render: h => h(App)
-}).$mount('#app');
+app.mount('#app');
