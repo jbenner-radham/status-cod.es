@@ -1,12 +1,14 @@
+<script setup>
+    import { RouterView } from 'vue-router';
+</script>
+
 <template>
-    <main id="app">
+    <main>
         <dl class="app__definition-list">
-            <dt class="app__title" title="HTTP Status Codes" aria-label="HTTP Status Codes">
-                http_status_codes
-            </dt>
+            <dt class="app__title" title="HTTP Status Codes" aria-label="HTTP Status Codes">HTTP Status Codes</dt>
 
             <dd class="app__definitions">
-                <router-view/>
+                <router-view />
             </dd>
         </dl>
     </main>
@@ -14,14 +16,16 @@
 
 <style lang="scss">
     /// NOTE: The order of the Bootstrap imports is important!
-    @import '~bootstrap/scss/functions';
-    @import '~bootstrap/scss/variables';
-    @import '~bootstrap/scss/mixins';
-    @import '~bootstrap/scss/reboot';
+    @import 'bootstrap/scss/functions';
+    @import 'bootstrap/scss/variables';
+    @import 'bootstrap/scss/mixins';
+    @import 'bootstrap/scss/maps';
+    @import 'bootstrap/scss/root';
+    @import 'bootstrap/scss/reboot';
 
     $dark-color: #2b2b2b;
 
-    #app {
+    main {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         color: $dark-color;
@@ -31,7 +35,7 @@
     }
 
     .app__definition-list {
-        max-width: 85%;
+        width: 85%;
     }
 
     .app__title {
@@ -42,16 +46,16 @@
         text-align: right;
 
         &::after {
-            content: '≔'; /// @see &coloneq;
+            content: ' ≔'; /// @see &coloneq;
             margin: {
-                left: -.5rem;
+                left: -0.5rem;
                 right: 1rem;
             }
         }
     }
 
     @media all and (max-width: 414px) {
-        #app {
+        main {
             font-size: 1.25rem;
         }
     }

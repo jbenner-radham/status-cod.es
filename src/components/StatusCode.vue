@@ -1,3 +1,30 @@
+<script setup>
+    import { computed } from 'vue';
+    import StatusCodeReference from './StatusCodeReference.vue';
+
+    const props = defineProps({
+        statusCode: {
+            type: Object,
+            default() {
+                return {
+                    description: '',
+                    reference: '',
+                    value: NaN
+                };
+            },
+            validator(value) {
+                const keys = ['description', 'reference', 'value'];
+
+                return Object.keys(value).every((key) => keys.includes(key));
+            }
+        }
+    });
+
+    const description = computed(() => props.statusCode.description);
+    const references = computed(() => props.statusCode.reference.match(/\[RFC\d+(?:\w|,| |\.)*\]/g));
+    const value = computed(() => props.statusCode.value);
+</script>
+
 <template>
     <div property="http:Response" class="status-code">
         <dt :id="value" property="http:statusCodeValue" class="status-code__value">
@@ -13,60 +40,17 @@
         <dd class="status-code__references">
             <ul class="status-code__references-list">
                 <li v-for="reference in references" :key="reference" class="status-code__reference-item">
-                    <status-code-reference :reference="reference"/>
+                    <status-code-reference :reference="reference" />
                 </li>
             </ul>
         </dd>
     </div>
 </template>
 
-<script>
-    /** @see https://www.w3.org/TR/HTTP-in-RDF/ */
-    import StatusCodeReference from '@/components/StatusCode/Reference.vue';
-
-    export default {
-        name: 'StatusCode',
-        components: {
-            StatusCodeReference
-        },
-        props: {
-            statusCode: {
-                type: Object,
-                default() {
-                    return {
-                        description: '',
-                        reference: '',
-                        value: NaN
-                    };
-                },
-                validator(value) {
-                    const keys = ['description', 'reference', 'value'];
-
-                    return Object.keys(value).every(key => keys.includes(key));
-                }
-            }
-        },
-        computed: {
-            description() {
-                return this.statusCode.description;
-            },
-            reference() {
-                return this.statusCode.reference;
-            },
-            references() {
-                return this.reference.match(/\[RFC\d{4}(?:\w|,| |\.)*\]/g);
-            },
-            value() {
-                return this.statusCode.value;
-            }
-        }
-    };
-</script>
-
 <style lang="scss">
     /// NOTE: The order of the Bootstrap imports is important!
-    @import '~bootstrap/scss/functions';
-    @import '~bootstrap/scss/variables';
+    @import 'bootstrap/scss/functions';
+    @import 'bootstrap/scss/variables';
 
     /// > In order to annotate groups with microdata attributes, or other global
     /// > attributes that apply to whole groups, or just for styling purposes,

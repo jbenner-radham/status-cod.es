@@ -1,4 +1,0 @@
----
-apache:
-  docroot: /var/www/html
-  servername: localhost
