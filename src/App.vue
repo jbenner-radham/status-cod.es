@@ -5,7 +5,7 @@
 <template>
     <main class="app">
         <dl class="app__definition-list">
-            <dt class="app__title" title="HTTP Status Codes" aria-label="HTTP Status Codes">HTTP Status Codes</dt>
+            <dt class="app__title">HTTP Status Codes</dt>
 
             <dd class="app__definitions">
                 <router-view />
