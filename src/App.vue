@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <main>
+    <main class="app">
         <dl class="app__definition-list">
             <dt class="app__title" title="HTTP Status Codes" aria-label="HTTP Status Codes">HTTP Status Codes</dt>
 
@@ -25,7 +25,7 @@
 
     $dark-color: #2b2b2b;
 
-    main {
+    .app {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         color: $dark-color;
@@ -55,7 +55,7 @@
     }
 
     @media all and (max-width: 414px) {
-        main {
+        .app {
             font-size: 1.25rem;
         }
     }
