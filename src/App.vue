@@ -12,6 +12,12 @@
             </dd>
         </dl>
     </main>
+    <footer>
+        <small>
+            <a href="https://github.com/jbenner-radham/status-cod.es">Source code</a> is licensed under the
+            <a rel="license" href="http://opensource.org/licenses/MIT">MIT License (Expat)</a>.
+        </small>
+    </footer>
 </template>
 
 <style lang="scss">
@@ -24,6 +30,11 @@
     @import 'bootstrap/scss/reboot';
 
     $dark-color: #2b2b2b;
+
+    footer {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
 
     .app {
         -moz-osx-font-smoothing: grayscale;
