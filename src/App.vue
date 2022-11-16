@@ -56,7 +56,7 @@
 
     @media all and (max-width: 414px) {
         .app {
-            font-size: 1.25rem;
+            font-size: 0.85rem;
         }
     }
 </style>
