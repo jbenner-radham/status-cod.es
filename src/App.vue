@@ -14,7 +14,7 @@
     </main>
     <footer>
         <small>
-            <a href="https://github.com/jbenner-radham/status-cod.es">Source code</a> is licensed under the
+            This site's <a href="https://github.com/jbenner-radham/status-cod.es">source code</a> is licensed under the
             <a rel="license" href="http://opensource.org/licenses/MIT">MIT License (Expat)</a>.
         </small>
     </footer>
