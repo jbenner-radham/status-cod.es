@@ -8,6 +8,12 @@ module.exports = {
         {
             files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
             extends: ['plugin:cypress/recommended']
+        },
+        {
+            files: ['*.cjs'],
+            env: {
+                node: true
+            }
         }
     ],
     parserOptions: {

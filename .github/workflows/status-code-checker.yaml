@@ -1,0 +1,21 @@
+---
+name: Status Code Checker
+on:
+  push:
+  schedule:
+    - cron: '55 5 * * *' # At 5:55am every day
+jobs:
+  status-code-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: npm
+      - name: Get latest HTTP status codes as JSON
+        run: npx http-status-code-registry-cli > incoming.json
+      - name: Compare the current and incoming HTTP status codes
+        run: node ./scripts/compare-json.cjs public/index.json incoming.json
+
