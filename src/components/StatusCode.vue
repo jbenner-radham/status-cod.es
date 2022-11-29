@@ -37,12 +37,8 @@
             {{ description }}
         </dd>
 
-        <dd class="status-code__references">
-            <ul class="status-code__references-list">
-                <li v-for="reference in references" :key="reference" class="status-code__reference-item">
-                    <status-code-reference :reference="reference" />
-                </li>
-            </ul>
+        <dd class="status-code__reference">
+            <status-code-reference v-for="reference in references" :key="reference" :reference="reference" />
         </dd>
     </div>
 </template>
@@ -63,23 +59,6 @@
 
     .status-code__description {
         margin-bottom: 0;
-    }
-
-    .status-code__reference {
-        font-family: $font-family-monospace;
-    }
-
-    .status-code__references {
-        margin-bottom: 0;
-    }
-
-    .status-code__references-list {
-        list-style: none;
-        padding-left: 0;
-
-        &:not(:first-child) {
-            margin-top: 1rem;
-        }
     }
 
     .status-code__value {
