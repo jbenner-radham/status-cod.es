@@ -48,6 +48,10 @@
     @import 'bootstrap/scss/functions';
     @import 'bootstrap/scss/variables';
 
+    :target::before {
+        content: '➭ ';
+    }
+
     /// > In order to annotate groups with microdata attributes, or other global
     /// > attributes that apply to whole groups, or just for styling purposes,
     /// > each group in a dl element can be wrapped in a div element.

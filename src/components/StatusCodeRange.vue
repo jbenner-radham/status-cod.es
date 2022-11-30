@@ -46,6 +46,10 @@
     @import 'bootstrap/scss/functions';
     @import 'bootstrap/scss/variables';
 
+    :target::before {
+        content: '➭ ';
+    }
+
     .status-code-range__description {
         color: lighten($color: #000000, $amount: 32%);
         font-style: italic;
