@@ -46,7 +46,7 @@
     @import 'bootstrap/scss/functions';
     @import 'bootstrap/scss/variables';
 
-    :target::before {
+    .status-code-range__term:target::before {
         content: '➭ ';
     }
 
