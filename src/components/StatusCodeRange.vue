@@ -66,4 +66,16 @@
     .status-code-range__term--name {
         font-size: 5rem;
     }
+
+    @media (prefers-color-scheme: dark) {
+        .status-code-range__description {
+            color: invert($color: lighten($color: #000000, $amount: 32%));
+        }
+
+        .status-code-range__term {
+            border-bottom: {
+                color: #fff;
+            }
+        }
+    }
 </style>

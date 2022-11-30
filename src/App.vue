@@ -30,6 +30,7 @@
     @import 'bootstrap/scss/reboot';
 
     $dark-color: #2b2b2b;
+    $light-color: #ffffff;
 
     footer {
         text-align: center;
@@ -51,7 +52,7 @@
 
     .app__title {
         background-color: $dark-color;
-        color: white;
+        color: $light-color;
         font-family: $font-family-monospace;
         padding: 1rem;
         text-align: right;
@@ -62,6 +63,25 @@
                 left: -0.5rem;
                 right: 1rem;
             }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: invert($color: $light-color);
+        }
+
+        footer {
+            color: invert($color: $dark-color);
+        }
+
+        .app {
+            color: invert($color: $dark-color);
+        }
+
+        .app__title {
+            color: invert($color: $light-color);
+            background-color: invert($color: $dark-color);
         }
     }
 
