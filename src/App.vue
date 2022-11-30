@@ -14,8 +14,11 @@
     </main>
     <footer>
         <small>
-            This site's <a href="https://github.com/jbenner-radham/status-cod.es">source code</a> is licensed under the
-            <a rel="license" href="http://opensource.org/licenses/MIT">MIT License (Expat)</a>.
+            <p>
+                This site's <a href="https://github.com/jbenner-radham/status-cod.es">source code</a> is licensed under
+                the <a rel="license" href="http://opensource.org/licenses/MIT">MIT License (Expat)</a>.
+            </p>
+            <p>Made by <a href="https://www.jamesbenner.com">James Benner</a>.</p>
         </small>
     </footer>
 </template>
