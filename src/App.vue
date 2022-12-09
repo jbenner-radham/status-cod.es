@@ -12,11 +12,16 @@
             </dd>
         </dl>
     </main>
+
+    <div class="hr-wrapper">
+        <hr />
+    </div>
+
     <footer>
         <small>
             <p>
                 This site's <a href="https://github.com/jbenner-radham/status-cod.es">source code</a> is licensed under
-                the <a rel="license" href="http://opensource.org/licenses/MIT">MIT License (Expat)</a>.
+                the <a rel="license" href="http://opensource.org/licenses/MIT">MIT License</a>.
             </p>
             <p>Made by <a href="https://www.jamesbenner.com">James Benner</a>.</p>
         </small>
@@ -34,10 +39,12 @@
 
     $dark-color: #2b2b2b;
     $light-color: #ffffff;
+    $content-width: 90%;
 
     footer {
         text-align: center;
-        margin-bottom: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
 
     .app {
@@ -50,7 +57,7 @@
     }
 
     .app__definition-list {
-        width: 85%;
+        width: $content-width;
     }
 
     .app__title {
@@ -66,6 +73,15 @@
                 left: -0.5rem;
                 right: 1rem;
             }
+        }
+    }
+
+    .hr-wrapper {
+        display: flex;
+        justify-content: space-around;
+
+        & > hr {
+            width: $content-width;
         }
     }
 
@@ -85,6 +101,10 @@
         .app__title {
             color: invert($color: $light-color);
             background-color: invert($color: $dark-color);
+        }
+
+        .hr-wrapper > hr {
+            color: invert($color: $dark-color);
         }
     }
 
