@@ -21,7 +21,7 @@
     });
 
     const description = computed(() => props.statusCode.description);
-    const references = computed(() => props.statusCode.reference.match(/\[RFC\d+(?:\w|,| |\.)*\]/g));
+    const references = computed(() => props.statusCode.reference.match(/\[.+\]/g));
     const value = computed(() => props.statusCode.value);
 </script>
 

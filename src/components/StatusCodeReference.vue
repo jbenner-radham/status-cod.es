@@ -13,12 +13,22 @@
 
     const citation = computed(() => debracketify(props.reference));
     const url = computed(() => {
+        const url = new URL('https://datatracker.ietf.org/doc/html/');
+
+        if (!props.reference.startsWith('[RFC')) {
+            url.pathname += debracketify(props.reference);
+
+            return url.toString();
+        }
+
         const re = /(?:RFC)(\d+)(?:, Section )?((\d+)?(.?\d+?)?(.?\d+)?)/;
         const [, rfc, section] = re.exec(props.reference) ?? [];
 
-        return section
-            ? `https://datatracker.ietf.org/doc/html/rfc${rfc}#section-${section}`
-            : `https://datatracker.ietf.org/doc/html/rfc${rfc}`;
+        url.pathname += `rfc${rfc}`;
+
+        if (section) url.hash = `section-${section}`;
+
+        return url.toString();
     });
 </script>
 
