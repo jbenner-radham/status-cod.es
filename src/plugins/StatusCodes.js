@@ -22,6 +22,11 @@ export default {
                 reference: '[RFC8297]'
             },
             {
+                value: 104,
+                description: 'Upload Resumption Supported (TEMPORARY - registered 2024-11-13, expires 2025-11-13)',
+                reference: '[draft-ietf-httpbis-resumable-upload-05]'
+            },
+            {
                 value: 200,
                 description: 'OK',
                 reference: '[RFC9110, Section 15.3.1]'
