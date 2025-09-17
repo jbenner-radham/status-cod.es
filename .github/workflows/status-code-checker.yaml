@@ -13,8 +13,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - name: Enable corepack # Download pnpm
-        run: corepack enable
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
       - name: Get latest HTTP status codes as JSON
         run: pnpm dlx http-status-code-registry-cli@latest > incoming.json
       - name: Compare the current and incoming HTTP status codes
