@@ -19,10 +19,10 @@ jobs:
       - name: Enable corepack # Required for act (https://github.com/nektos/act)
         run: corepack enable
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --prefer-frozen-lockfile
       - name: Lint
-        run: yarn lint
+        run: pnpm run lint
       - name: Test
-        run: yarn test:unit --run
+        run: pnpm run test:unit --run
       - name: Build
-        run: yarn build
+        run: pnpm run build
