@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: 18.x
           cache: pnpm
+      - name: Enable corepack # Download pnpm
+        run: corepack enable
       - name: Get latest HTTP status codes as JSON
         run: pnpm dlx http-status-code-registry-cli@latest > incoming.json
       - name: Compare the current and incoming HTTP status codes
