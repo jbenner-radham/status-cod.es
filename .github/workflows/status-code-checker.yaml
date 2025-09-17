@@ -13,9 +13,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: npm
+          cache: pnpm
       - name: Get latest HTTP status codes as JSON
-        run: npx http-status-code-registry-cli@latest > incoming.json
+        run: pnpm dlx http-status-code-registry-cli@latest > incoming.json
       - name: Compare the current and incoming HTTP status codes
         run: node ./scripts/compare-json.cjs public/index.json incoming.json
 
