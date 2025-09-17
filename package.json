@@ -15,6 +15,7 @@
   "author": "James Benner <james.benner@gmail.com> (https://www.jamesbenner.com/)",
   "scripts": {
     "build": "vite build",
+    "build-status-codes": "node ./scripts/build-status-codes.cjs",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
@@ -42,6 +43,7 @@
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.3.0",
     "gh-pages": "^4.0.0",
+    "http-status-code-registry": "^0.2.0",
     "husky": "^8.0.2",
     "jsdom": "^20.0.1",
     "lint-staged": "^13.0.3",

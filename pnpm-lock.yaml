@@ -51,6 +51,9 @@ importers:
       gh-pages:
         specifier: ^4.0.0
         version: 4.0.0
+      http-status-code-registry:
+        specifier: ^0.2.0
+        version: 0.2.0
       husky:
         specifier: ^8.0.2
         version: 8.0.3
@@ -1354,6 +1357,10 @@ packages:
   http-signature@1.3.6:
     resolution: {integrity: sha512-3adrsD6zqo4GsTqtO7FyrejHNv+NgiIfAfv68+jVlFmSr9OGy7zrxONceFRLKvnnZA5jbxQBX1u9PpB6Wi32Gw==}
     engines: {node: '>=0.10'}
+
+  http-status-code-registry@0.2.0:
+    resolution: {integrity: sha512-cKoe9IZpMlsL8o2hyGaOA2eH5th3mXE/NeiquOwnSPVqTEclgazOlskoVe4KxVqX8cKZ2CUxHlhNLajkMhCxpA==}
+    engines: {node: '>=18'}
 
   https-proxy-agent@5.0.1:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
@@ -3725,6 +3732,8 @@ snapshots:
       assert-plus: 1.0.0
       jsprim: 2.0.2
       sshpk: 1.18.0
+
+  http-status-code-registry@0.2.0: {}
 
   https-proxy-agent@5.0.1:
     dependencies:
